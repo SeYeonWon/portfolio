@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style__.css">
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+            /*search for elements with a certain attribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }      
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /*exit the function:*/
+                    return;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+
+    <div class="header">
+        <div w3-include-html="navi.html"></div> 
+    </div>
+
+    <div class="title">
+        <h2>나의 포트폴리오</h2>
+    </div>
+
+    <div class="content">
+        <div class="item">
+            <div class="img">
+                <img src="img/2301110169_ 원세연.png" alt="">
+            </div>
+            <h4>나를 표현한 월페이퍼</h4>
+            <button class="toggleOverlayBtn">more <span>></span></button>
+        </div>
+        <div class="overlay overlay1" id="overlay">
+            <img src="img/2301110169_ 원세연.png" alt="">
+        </div>
+        <div class="item">
+            <div class="img">
+                <img src="img/2301110169_원세연-09.png" alt="">
+            </div>
+            <h4>잡지 리디자인</h4>
+            <button class="toggleOverlayBtn">more<span>></span></button>
+        </div>
+        <div class="overlay overlay2" id="overlay">
+            <div class="scroll-container">
+                <div class="scroll-content">
+                    <img src="img/2301110169_원세연-09.png" alt="">
+                    <img src="img/2301110169_원세연-10.png" alt="">
+                    <img src="img/2301110169_원세연-11.png" alt="">
+                    <img src="img/2301110169_원세연-12.png" alt="">
+                    <img src="img/2301110169_원세연-13.png" alt="">
+                    <img src="img/2301110169_원세연-14.png" alt="">
+                    <img src="img/2301110169_원세연-15.png" alt="">
+                    <img src="img/2301110169_원세연-16.png" alt="">
+                    <img src="img/2301110169_원세연-17.png" alt="">
+                    <img src="img/2301110169_원세연-18.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="img">
+                <img src="img/coffee.JPG" alt="">
+            </div>
+            <h4>커피 잡지 디자인</h4>
+            <button class="toggleOverlayBtn">more<span>></span></button>
+        </div>
+        <div class="overlay overlay3" id="overlay">
+            <img src="img/coffee.JPG" alt="">
+        </div>
+        <div class="item">
+            <div class="img">
+            <img src="img/IMG_3471.JPG" alt="">
+            </div>
+            <h4>사진촬영</h4>
+            <button class="toggleOverlayBtn">more<span>></span></button>
+        </div>
+        <div class="overlay overlay4">
+            <div class="scroll-container">
+                <div class="scroll-content">
+                    <img src="img/IMG_3460.JPG" alt="">
+                    <img src="img/IMG_3467.JPG" alt="">
+                    <img src="img/IMG_3477.JPG" alt="">
+                    <img src="img/IMG_3471.JPG" alt="">
+                    <img src="img/IMG_3467.JPG" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="img">
+            <img src="img/대지 1.png" alt="">
+            </div>
+            <h4>앨범 커버 디자인 및 굿즈 목업</h4>
+            <button class="toggleOverlayBtn">more<span>></span></button>
+        </div>
+        <div class="overlay overlay5">
+            <img src="img/대지 1.png" alt="">
+        </div>
+        <div class="item">
+            <div class="img">
+            <img src="img/2301110169_ 원세연.png" alt="">
+            </div>
+            <p>2023.12.10</p>
+            <button class="toggleOverlayBtn">more<span>></span></button>
+        </div>
+
+    <script>
+        includeHTML();
+        </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const toggleOverlayBtns = document.querySelectorAll('.toggleOverlayBtn');
+
+            toggleOverlayBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const overlay = btn.parentNode.nextElementSibling;
+                    overlay.classList.toggle('show');
+
+
+                    overlay.addEventListener('click', () => {
+                        overlay.classList.remove('show');
+                    });
+                });
+            });
+        });
+
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const leftElements = document.querySelectorAll('.title');
+            const rightElements = document.querySelectorAll('.content .item');
+        
+            leftElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('animated-left');
+                }, index * 500); // 각 요소마다 0.5초의 지연을 줍니다.
+            });
+        
+            rightElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('animated-right');
+                }, index * 500); // 각 요소마다 0.5초의 지연을 줍니다.
+            });
+        });
+    </script>
+
+    <script>
+        const scrollContainer = document.querySelector('.scroll-container');
+        const scrollContent = document.querySelector('.scroll-content');
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollContainer.classList.add('active');
+            startX = e.pageX - scrollContent.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContent.offsetLeft;
+            const walk = (x - startX) * 2; // 스크롤 속도 조절
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+
+    </script>
+</body>
+</html>

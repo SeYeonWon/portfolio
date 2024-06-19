@@ -1,0 +1,183 @@
+@font-face {
+    font-family: 'Freesentation-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation.woff2') format('woff2');
+    font-weight: 300; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-4Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-4Regular.woff2') format('woff2');
+    font-weight: 400; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-5Midium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-5Midium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-7Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* left */
+
+.left{
+    width: 30px;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+.left .img{
+    height: 60vh;
+    width: 48vh;
+    border-radius: 40%;
+    float: left;
+    background-color: rgb(233, 241, 247);
+    background-image: url(img/seyeon_face.jpg);
+    background-size: 50vh;
+    background-position: -1vh;
+}
+
+/* right */
+
+.right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+}
+
+/* name */
+.right .name h1{
+    font-size: 64px;
+    float: left;
+    font-weight: 700;
+    font-family: 'Freesentation-7Bold';
+}
+.right .name .pub{
+    margin: 10px;
+    margin-left: 12vw;
+}
+.right .name .pub h3{
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    font-family: 'Freesentation-4Regular';
+}
+.right .name .pub p{
+    margin: 0;
+    padding: 0;
+    font-family: 'Freesentation-3Light';
+}
+.name.mobile{
+    display: none;
+}
+
+/* tag */
+
+.right .tag{
+    font-size: 20px;
+    margin: 10px 0;
+}
+.right .tag p{
+    background-color: #e4e4e4;
+    border-radius: 13px;
+    padding: 8px 28px;
+    float: left;
+    margin: 5px;
+    font-family: 'Freesentation-3Light';
+}
+
+/* edu */
+
+.right .edu{
+    margin-top: 35px;
+}
+.right .edu .title h3{
+    font-size: 30px;
+    font-family: 'Freesentation-7Bold';
+}
+.right .edu .text .box{
+    margin: 20px;
+}
+.right .edu .text .box h3{
+    font-size: 24px;
+    font-family: 'Freesentation-5Midium';
+}
+.right .edu .text .box ul{
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 3vw;
+        font-family: 'Freesentation-4Regular';
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.hidden {
+    opacity: 0;
+}
+.animated-left {
+    animation: fadeInLeft 1s ease forwards;
+}
+
+.animated-right {
+    animation: fadeInRight 1s ease forwards;
+}
+
+.img, .name, .tag, .edu{
+    opacity: 0;
+}
+
+@media screen and (max-width:991px) {
+    *{
+        margin: 0 !important;
+    }
+
+    .left .img{
+        width: 25vh;
+        height: 35vh;
+        background-size: 30vh;
+        background-position: -2vh;
+        margin-left: 3vh !important;
+        
+    }
+
+    .name.pc{
+        display: none;
+    }
+    .name.mobile{
+        display: block;
+    }
+
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+            /*search for elements with a certain attribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }      
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /*exit the function:*/
+                    return;
+                }
+            }
+        };
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var $slide = $('.slide'), 
+                $slideGroup = $('.slide-group'),
+                $bullet = $('.bullet');
+
+                var slidesTotal = ($slide.length - 1),
+                current = 0,
+                isAutoSliding = true;
+
+            $bullet.first().addClass('current');
+
+            var clickSlide = function() {
+                // Stop auto sliding
+                window.clearInterval(autoSlide);
+                isAutoSliding = false;
+
+                var slideIndex = $bullet.index($(this));
+                updateIndex(slideIndex);
+            };
+
+            var updateIndex = function(currentSlide) {
+                if (isAutoSliding) {
+                    if (current === slidesTotal) {
+                        current = 0;
+                    } else {
+                        current++;
+                    }
+                } else {
+                    current = currentSlide;
+                }
+
+                $bullet.removeClass('current');
+                $bullet.eq(current).addClass('current');
+
+                transition(current);
+            };
+
+            var transition = function(slidePosition) {
+                $slideGroup.animate({
+                    'top': '-' + slidePosition + '00%'
+                    // If slides are arranged horizontally, use 'left' property instead:
+                    // 'left': '-' + slidePosition + '00%'
+                });
+            };
+
+            $bullet.on('click', clickSlide);
+
+            // When setting autoSlide, we need to pass the current slide index to updateIndex
+            var autoSlide = window.setInterval(function() {
+                updateIndex(current);
+            }, 2000);
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div w3-include-html="navi.html"></div> 
+    </div>
+    <div class="content">
+        <div class="left">
+            <div class="title">
+                <p>어디든 담기고<br>
+                어디든 녹아드는</p>
+                <h3>소금같은 디자이너</h3>
+            </div>
+            <div class="slide-wrap">
+                <div class="slide-mask">
+                    <ul class="slide-group">
+                        <li class="slide"><img src="img/2301110169_ 원세연.png" alt=""></li>
+                        <li class="slide"><img src="img/2301110169_원세연-09.png" alt=""></li>      
+                        <li class="slide"><img src="img/coffee.JPG" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="name">
+                <h1>원세연</h1><p>입니다</p>
+            </div>
+            <div class="tag">
+                <div class="top">
+                    <p>#유동성_있는</p>
+                    <p>#시각디자인</p>
+                </div>
+                <div class="bottom">
+                    <p>#필수</p>
+                    <p>#가_되고픈</p>
+                </div> 
+            </div>
+        </div>
+        <div class="right">
+            <div class="slide-wrap">
+                <div class="slide-mask">
+                    <ul class="slide-group">
+                        <li class="slide"><img src="img/2301110169_ 원세연.png" alt=""></li>
+                        <li class="slide"><img src="img/2301110169_원세연-09.png" alt=""></li>      
+                        <li class="slide"><img src="img/coffee.JPG" alt=""></li>
+                        <li class="slide"><img src="img/대지 1.png" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        includeHTML();
+        </script>
+
+    <link rel="stylesheet" href="slide.js">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const leftElements = document.querySelectorAll('.left .title, .left .img, .left .name, .left .tag');
+            const rightElements = document.querySelectorAll('.right .slide');
+        
+            leftElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('animated-left');
+                }, index * 500); // 각 요소마다 0.5초의 지연을 줍니다.
+            });
+        
+            rightElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('animated-right');
+                }, index * 500); // 각 요소마다 0.5초의 지연을 줍니다.
+            });
+        });
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+
+.header .navi{
+    height: 140px;
+}
+.header .navi .logo img{
+    width: 113px;
+    float: left;
+    margin-left: 70px;
+}
+.header .navi .menu{
+    float: right;
+    margin: 30px;
+}
+.header .navi .menu a{
+    text-decoration: none;
+    padding-bottom: 5px;
+    margin: 0 20px;
+    color: black;
+}
+.header .navi .menu .underline{
+    border-bottom: 1px solid black;
+}
+
+/* title */
+
+.title{
+    text-align: center;
+    margin-bottom: 2%;
+    font-size: 2.8vh;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item {
+    flex: 1 1 calc(33.% - 10vh);
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    border-radius: 2vh;
+    padding: 1vh;
+    margin: 2vh;
+}
+
+.item .img{
+    text-align: center;
+    padding: 15px;
+}
+.content img{
+    width: 45vh;
+    height: auto;
+    border-radius: 11px;
+}
+.item p{
+    font-size: 16px;
+    text-align: left;
+    margin-left: 20px;
+}
+.item h4{
+    margin-left: 20px;
+}
+.item button{
+    width: 145px;
+    height: 30px;
+    float: right;
+    margin-right: 20px;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+}
+.item button span{
+    margin-left: 60px;
+}
+.item button:hover{
+    background-color: rgba(209, 209, 209, 0.795);
+    transition: .3s;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.76);
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto; /* 오버레이가 보일 때는 클릭이 가능하게 설정 */
+}
+
+.overlay img {
+    width: 70vh;
+    margin: 10vh;
+}
+.overlay p{
+    font-size: 3vh;
+    color: white;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.hidden {
+    opacity: 0;
+}
+.animated-left {
+    animation: fadeInLeft 1s ease forwards;
+}
+
+.animated-right {
+    animation: fadeInRight 1s ease forwards;
+}
+
+.title, .item{
+    opacity: 0;
+}
+.overlay2, .overlay4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scroll-container {
+    width: 80%;
+    overflow: hidden;
+}
+.scroll-content {
+    display: flex;
+    cursor: grab;
+}
+.scroll-container .scroll-content img{
+    padding: 0;
+    margin: 0;
+    margin-right: 2vh;
+}

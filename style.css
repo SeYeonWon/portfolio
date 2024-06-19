@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'Freesentation-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation.woff2') format('woff2');
+    font-weight: 300; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-4Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-4Regular.woff2') format('woff2');
+    font-weight: 400; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-5Midium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-5Midium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-7Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    }
+    
+/* content */
+
+.content{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 3vh;
+}
+
+.content .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 5%;
+    width: calc(50%-20px);
+    margin-left: 7vh;
+}
+.content .left .title{
+    width: 100%;
+}
+.content .left .title p{
+    font-size: 4vh;
+    font-family: 'Freesentation-4Regular';
+    letter-spacing: .2vh;
+}
+.content .left .title h3{
+    font-size: 3em;
+    font-family: 'Freesentation-7Bold';
+    letter-spacing: .2vh;
+}
+.content .left h1{
+    font-family: 'Freesentation-8ExtraBold';
+    font-size: 6em;
+    letter-spacing: .2vh;
+}
+
+.content .left .tag{
+    font-size: 3vh;
+}
+
+.content .left .tag p{
+    background-color: rgb(235, 235, 235);
+    border-radius: 8px;
+    padding: 10px 20px;
+    float: left;
+    margin: 5px;
+    letter-spacing: .2vh;
+    font-family: 'Freesentation-4Regular';
+}
+
+.left .slide-wrap{
+    display: none;
+}
+.name p{
+    display: none;
+    font-family: 'Freesentation-3Light';
+}
+.right{
+    width: 50%;
+
+}
+.slide-wrap {
+    margin: 5% auto 0;
+    width: 50%;
+}
+.slide-mask {
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+    width: 80vh;
+    }
+
+.slide-group {
+    position: absolute; 
+    top: 0px; 
+    left: 0;
+    width: 100%;
+}
+
+.slide {
+    height: 50vh;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;  
+}
+.slide img{
+    height: 50vh;
+    border-radius: 5vh;
+}
+
+
+/* 애니메이션 정의 */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.animated-left {
+    animation: fadeInLeft 1s ease forwards;
+}
+
+.animated-right {
+    animation: fadeInRight 1s ease forwards;
+}
+
+.title, .img, .name, .tag, .slide {
+    opacity: 0; /* 초기 상태를 투명하게 설정 */
+}
+
+
+@media screen and (max-width:991px) {
+    *{
+        margin: 0 !important;
+    }
+    .left .slide-wrap{
+        display:block;
+    }
+    .left .slide-wrap .slide-mask{
+        width: 10vh !important;
+        height: 5vh;
+        border-radius: 5vh;
+    }
+    .left .slide-group .slide img{
+        width: 10vh !important;
+    }
+    .left .title{
+        float: right;
+        text-align: right;
+
+    }
+    .left .title p{
+        font-size: 4vh !important;
+        letter-spacing: .2vh;
+    }
+    .left .title h3{
+        font-size: 6vh !important;
+        padding: 2vh 0;
+        letter-spacing: .2vh;
+    }
+    .left .name{
+        margin-top: 3vh !important ;
+    }
+    .left .name h1{
+        font-size: 6vh;
+        float: left;
+        margin-right: .5vh !important;
+        padding-left: 0.5vh;
+        letter-spacing: .2vh;
+    }
+    .left .name p{
+        display: block;
+        margin-top: 3vh !important;
+        font-size: 3vh;
+        letter-spacing: .2vh;
+    }
+    .left .tag p{
+        margin: .5vh 1.3vh !important;
+    }
+    .right .slide-wrap{
+        display: none;
+    }
+}

@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Freesentation-3Light';
+    src: url(img/logo.png) format('woff2');
+    font-weight: 300; 
+    font-style: normal;
+}
+
+.navi{
+    height: 12vh;
+
+}
+.navi .logo img{
+    width: 15vh;
+    float: left;
+    margin-left: 5vh;
+}
+.navi .menu{
+    float: right;
+    margin: 30px;
+}
+.navi .menu a{
+    font-size: 3vh;
+    text-decoration: none;
+    padding-bottom: 5px;
+    margin: 0 20px;
+    color: black;
+    font-family: 'Freesentation-3Light';
+}
+
+@media screen and (max-width:991px) {
+    .navi .logo img{
+        max-width: 15vw !important;
+    }
+    .navi .logo{
+        padding: 0;
+        margin-left: 3vh !important;
+
+    }
+    .navi .menu{
+        display: block;
+        margin-top: 3vh !important;
+    }
+    .navi .menu a{
+        font-size: 2.5vh !important;
+        text-decoration: none;
+        color: black;
+        padding: 3vw;
+    }
+}
