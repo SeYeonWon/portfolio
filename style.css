@@ -123,6 +123,7 @@ body {
 }
 .right .slide img{
     height: 50vh;
+    width: 80vh;
     border-radius: 5vh;
 }
 .left .slider {
