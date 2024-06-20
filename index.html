@@ -39,7 +39,7 @@
 
     <script>
         $(document).ready(function() {
-            var $slide = $('.slide'), 
+            var $slide = $('.slide'),
                 $slideGroup = $('.slide-group'),
                 $bullet = $('.bullet');
 
@@ -96,6 +96,8 @@
     <div class="header">
         <div w3-include-html="navi.html"></div> 
     </div>
+
+
     <div class="content">
         <div class="left">
             <div class="title">
@@ -103,13 +105,20 @@
                 어디든 녹아드는</p>
                 <h3>소금같은 디자이너</h3>
             </div>
-            <div class="slide-wrap">
-                <div class="slide-mask">
-                    <ul class="slide-group">
-                        <li class="slide"><img src="img/2301110169_ 원세연.png" alt=""></li>
-                        <li class="slide"><img src="img/2301110169_원세연-09.png" alt=""></li>      
-                        <li class="slide"><img src="img/coffee.JPG" alt=""></li>
-                    </ul>
+            <div class="slider" id="slider">
+                <div class="slides">
+                    <div class="m_slide">
+                        <img src="img/wallpaper.png" alt="">
+                    </div>
+                    <div class="m_slide">
+                        <img src="img/womansense 09.png" alt="">
+                    </div>
+                    <div class="m_slide">
+                        <img src="img/coffee.JPG" alt="">
+                    </div>
+                    <div class="m_slide">
+                        <img src="img/album_design_goods.png 1.png" alt="">
+                    </div>
                 </div>
             </div>
             <div class="name">
@@ -130,10 +139,10 @@
             <div class="slide-wrap">
                 <div class="slide-mask">
                     <ul class="slide-group">
-                        <li class="slide"><img src="img/2301110169_ 원세연.png" alt=""></li>
-                        <li class="slide"><img src="img/2301110169_원세연-09.png" alt=""></li>      
-                        <li class="slide"><img src="img/coffee.JPG" alt=""></li>
-                        <li class="slide"><img src="img/대지 1.png" alt=""></li>
+                        <li class="slide"><img src="img/wallpaper.png" alt=""></li>
+                        <li class="slide"><img src="img/womansense 09.png" alt=""></li>      
+                        <li class="slide"><img src="img/coffee.JPG" alt=""></li>      
+                        <li class="slide"><img src="img/album_design_goods.png" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -147,7 +156,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const leftElements = document.querySelectorAll('.left .title, .left .img, .left .name, .left .tag');
+            const leftElements = document.querySelectorAll('.left .title, .left .img, .left .name, .left .tag, .left .slider');
             const rightElements = document.querySelectorAll('.right .slide');
         
             leftElements.forEach((element, index) => {
@@ -164,5 +173,44 @@
         });
         </script>
     
+    <script>
+        let currentIndex = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 3000); // 3초마다 슬라이드 전환
+        }
+
+        function stopSlideShow() {
+            clearInterval(slideInterval);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentIndex);
+            startSlideShow();
+
+            const slider = document.getElementById('slider');
+            slider.addEventListener('mouseenter', stopSlideShow);
+            slider.addEventListener('mouseleave', startSlideShow);
+        });
+
+    </script>
 </body>
 </html>

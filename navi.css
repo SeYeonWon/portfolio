@@ -16,7 +16,7 @@
 }
 .navi .menu{
     float: right;
-    margin: 30px;
+    margin: 5vh;
 }
 .navi .menu a{
     font-size: 3vh;
@@ -33,12 +33,12 @@
     }
     .navi .logo{
         padding: 0;
-        margin-left: 3vh !important;
-
+        padding-left: 35%;
     }
     .navi .menu{
         display: block;
-        margin-top: 3vh !important;
+        margin-top: 2vh !important;
+        margin-left: -15vh;
     }
     .navi .menu a{
         font-size: 2.5vh !important;

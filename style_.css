@@ -90,7 +90,7 @@
     margin: 10px 0;
 }
 .right .tag p{
-    background-color: #e4e4e4;
+    background-color: #ebebeb78;
     border-radius: 13px;
     padding: 8px 28px;
     float: left;
@@ -160,24 +160,49 @@
 }
 
 @media screen and (max-width:991px) {
-    *{
-        margin: 0 !important;
-    }
-
+    
     .left .img{
         width: 25vh;
         height: 35vh;
         background-size: 30vh;
         background-position: -2vh;
-        margin-left: 3vh !important;
-        
+        margin-left: 2vh !important;
+        margin-top: 8vh;;
     }
-
+    .left{
+        float: left;
+    }
     .name.pc{
         display: none;
     }
     .name.mobile{
         display: block;
+        padding-top: 5vh;
+        margin-left: -10vh;
+    }
+    .name.mobile .pub p{
+        margin-top: 5.4vh;
+        margin-left: 14vh;
+    }
+    .name.mobile .pub h3{
+        margin-left: -8vh;
+    } 
+    .tag{
+        margin-left: 50% !important;
+        padding-top: 1vh;
+        border-radius: 5vh;
+    }
+    .tag p{
+        font-size: 2.8vh;
+        width: 17vh;
+        height: 5vh;
+        padding-top: 2vh !important;
+    }
+    .right .edu{
+        margin-left: -9vh;
+    }
+    .right .edu ul{
+        width: 100%;
     }
 
 }

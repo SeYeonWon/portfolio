@@ -180,3 +180,12 @@ button {
     margin: 0;
     margin-right: 2vh;
 }
+
+@media screen and (max-width:991px){
+.header{
+    margin-left: -5vh;
+}
+    .title h2{
+        margin-top: 5vh;
+    }
+}

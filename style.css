@@ -45,7 +45,7 @@ body {
 .content{
     display: flex;
     margin: 0 auto;
-    margin-top: 3vh;
+    /* margin-top: 3vh; */
 }
 
 .content .left{
@@ -90,16 +90,12 @@ body {
     font-family: 'Freesentation-4Regular';
 }
 
-.left .slide-wrap{
-    display: none;
-}
 .name p{
     display: none;
     font-family: 'Freesentation-3Light';
 }
 .right{
     width: 50%;
-
 }
 .slide-wrap {
     margin: 5% auto 0;
@@ -119,17 +115,42 @@ body {
     width: 100%;
 }
 
-.slide {
+.right .slide {
     height: 50vh;
     color: #fff;
     text-align: center;
     text-transform: uppercase;  
 }
-.slide img{
+.right .slide img{
     height: 50vh;
     border-radius: 5vh;
 }
+.left .slider {
+    display: none;
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    width: 50vh;
+    height: 35vh;
+    border-radius: 5vh;
+}
 
+.left .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.left .m_slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    background: #333;
+    color: white;
+    text-align: center;
+}
+.left .m_slide img{
+    width: 50vh;
+}
 
 /* 애니메이션 정의 */
 @keyframes fadeInLeft {
@@ -172,24 +193,18 @@ body {
 
 
 @media screen and (max-width:991px) {
-    *{
-        margin: 0 !important;
+
+    .left{
+        margin: 0 auto;
     }
-    .left .slide-wrap{
-        display:block;
+    .left .slider {
+        display: block;
     }
-    .left .slide-wrap .slide-mask{
-        width: 10vh !important;
-        height: 5vh;
-        border-radius: 5vh;
-    }
-    .left .slide-group .slide img{
-        width: 10vh !important;
-    }
+    
     .left .title{
         float: right;
         text-align: right;
-
+        margin-top: 10%;
     }
     .left .title p{
         font-size: 4vh !important;
@@ -219,7 +234,7 @@ body {
     .left .tag p{
         margin: .5vh 1.3vh !important;
     }
-    .right .slide-wrap{
+    .right{
         display: none;
     }
 }
